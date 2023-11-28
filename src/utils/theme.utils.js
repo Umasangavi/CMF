@@ -1,0 +1,107 @@
+let isDark = true;
+
+const Light = {
+  light: '#FFFFFF',
+  Dark: '#071529',
+  fontColor: '#F9F6FF',
+  background: '#F8F8FA',
+  success: '#35B071',
+  error: '#FF5368',
+  textPrimary: '#FF4E98',
+  textMuted: '#F8F8FD',
+  textSecondary: '#E4F4F6',
+  placeholderText: '#DADADA',
+  transparent: 'transparent',
+  primaryBtnColor: '#ACBAC3',
+  textGray2: '#E2E2E2',
+  inputBg: '#E8E8E8',
+  black: '#000000',
+  recovered: '#FFF4DA',
+  green: '#E5FFF0',
+  violet: '#EBEAFA',
+  gold: '#FCA82F',
+  textGreen: '#10C281',
+  btnGreen: '#E5FFF0',
+  textGray: '#768089',
+  line: '#F3F3F4',
+  blue: '#6C4DDA',
+  delete: 'rgba(255, 143, 107, 0.1)',
+  overlay: 'rgba(0, 0, 0, 0.4)',
+  disabled: '#d3d3d3',
+  uploadBox: '#FBFBFB',
+  screenBg: '#f6f6f6',
+  emergency: '#FFECEE',
+  secondary: '#0F182E',
+  textGray: '#8A8D9F',
+  lightGray: '#E3ECDD',
+  tertiaryButtonColor: '#FF5E75',
+  darkGreen: '#008000',
+
+  //Repute
+  inputBg:"#ACBAC3",
+  golden:"FFBF35",
+  textColor:"#5C616F",
+  green:"#23D2C3",
+  lightGrey:"#F9F9FF",
+  bgGrey:"#F5F5F5",
+  darkPink:"#d7079c"
+
+
+
+};
+
+const Dark = {
+  light: '#FFFFFF',
+  Dark: '#363D4E',
+  fontColor: '#F9F6FF',
+  background: '#F8F8FA',
+  success: '#35B071',
+  error: '#FF5368',
+  textPrimary: "#FF4E98",
+  textMuted: '#8B8B97',
+  textSecondary: '#E4F4F6',
+  placeholderText: '#DADADA',
+  transparent: 'transparent',
+  primaryBtnColor: '#ACBAC3',
+  textGray2: '#E2E2E2',
+  inputBg: '#E8E8E8',
+  black: '#000000',
+  recovered: '#FFF4DA',
+  green: '#E5FFF0',
+  violet: '#EBEAFA',
+  gold: '#FCA82F',
+  textGreen: '#10C281',
+  btnGreen: '#E5FFF0',
+  textGray: '#768089',
+  line: '#F3F3F4',
+  blue: '#6C4DDA',
+  delete: 'rgba(255, 143, 107, 0.1)',
+  overlay: 'rgba(0, 0, 0, 0.2)',
+  disabled: '#d3d3d3',
+  uploadBox: '#FBFBFB',
+  screenBg: '#f6f6f6',
+  emergency: '#FFECEE',
+  secondary: '#0F182E',
+  textGray3: '#9299A0',
+  lightGray: '#6E6E6E',
+  tertiaryButtonColor: '#FF5E75',
+  darkGreen: '#008000',
+
+  textColor:"#5C616F",
+  green:"#23D2C3",
+  lightDark:"#A6A3B8",
+  borderColor:"#BBBBBB",
+  lightGrey:"#F9F9FF",
+  btnBlue:"#B29CFF",
+  pink:"#821ee9",
+  toggle:"#1F81B9",
+  grey:"#E4E4E4",
+  lightPink:"#ff2f63",
+  bgGrey:"#F5F5F5",
+  darkPink:"#d7079c"
+
+
+
+};
+
+export default isDark ? Dark : Light;
