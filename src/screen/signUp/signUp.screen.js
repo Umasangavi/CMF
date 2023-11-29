@@ -143,17 +143,11 @@ export default function SignUp() {
         <View style={css.wrapper}>
           <ScrollView
             showsVerticalScrollIndicator={false}
-            style={{ paddingBottom: 20, height: "100%", width: "100%" }}
+            style={css.scrollview}
             contentContainerStyle={{ paddingBottom: 20 }}
           >
             <View
-              style={{
-                height: Height(10),
-                alignItems: "center",
-                justifyContent: "center",
-                width: "100%",
-              }}
-            >
+              style={css.headingContainer}>
               <Header label="Sign up" />
             </View>
             {/* <LinearGradient
@@ -164,16 +158,8 @@ export default function SignUp() {
         end={{ x: 1, y: 1 }}
       > */}
             <View
-              style={{
-                height: "auto",
-                backgroundColor: Colors.light,
-                borderRadius: 20,
-                padding: 12,
-                gap: 5,
-                width: "100%",
-              }}
-            >
-              <View style={{ width: "100%", alignItems: "center" }}>
+              style={css.cardContainer}>
+              <View style={css.imageContainer}>
                 <Image src={Assets.padani} height={95} width={200} />
               </View>
 
@@ -214,7 +200,7 @@ export default function SignUp() {
                 value={state.confirmPassword}
                 onChange={(e) => setState({ confirmPassword: e })}
               />
-              <View style={{ width: "100%" }}>
+              <View style={css.roleContainer}>
                 <Text color={Colors.Dark} size={18} family={"bold"} left={5}>
                   Role
                 </Text>
@@ -222,7 +208,7 @@ export default function SignUp() {
                   data={data}
                   numColumns={2}
                   keyExtractor={(item) => item.text}
-                  style={{ width: "100%" }}
+                  style={css.gridWidth}
                   contentContainerStyle={css.gridContainer}
                   renderItem={({ item, index }) => (
                     <TouchableHighlight style={css.grid}>
@@ -251,9 +237,7 @@ export default function SignUp() {
                               iconHeight={50}
                               onPress={() => setState({ index })}
                             />
-                            <View
-                              style={{ paddingTop: 10, alignItems: "center" }}
-                            >
+                            <View style={css.textContainer1}>
                               <Text
                                 color={Colors.Dark}
                                 size={18}
@@ -270,13 +254,7 @@ export default function SignUp() {
                   )}
                 />
               </View>
-              <View
-                style={{
-                  alignItems: "center",
-                  width: "100%",
-                  paddingTop: 20,
-                }}
-              >
+              <View style={css.nextButtonContainer}>
                 <PrimaryButton
                   text={"Next"}
                   width={Width(85)}
@@ -284,21 +262,9 @@ export default function SignUp() {
                   onPress={() => handleSubmit()}
                 />
               </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  paddingTop: 20,
-                }}
-              >
+              <View style={css.signinRowContainer}>
                 <View
-                  style={{
-                    flexDirection: "row",
-                    alignItems: "center",
-                    gap: 10,
-                  }}
-                >
+                  style={css.textContainer2}>
                   <Text color={Colors.Dark} size={20} family={"regular"}>
                     Already have an account ?
                   </Text>
@@ -306,7 +272,6 @@ export default function SignUp() {
                 <TouchableHighlight
                   onPress={() => navigation.navigate("signIn")}
                   underlayColor={Colors.white}
-                  style={{}}
                 >
                   <>
                     <Text
@@ -341,6 +306,32 @@ const css = StyleSheet.create({
     alignItems: "center",
     paddingBottom: 5,
   },
+  scrollview:{
+    paddingBottom: 20, height: "100%", width: "100%"
+  },
+  headingContainer:{
+    height: Height(10),
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+  },
+  cardContainer:{
+    height: "auto",
+    backgroundColor: Colors.light,
+    borderRadius: 20,
+    padding: 12,
+    gap: 5,
+    width: "100%",
+  },
+  imageContainer:{
+    width: "100%", alignItems: "center"
+  },
+  roleContainer:{
+    width: "100%"
+  },
+  gridWidth:{
+    width: "100%"
+  },
   gridContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -353,6 +344,7 @@ const css = StyleSheet.create({
     height: "100%",
     padding: 10,
   },
+  
   content: {
     height: Height(20),
 
@@ -360,4 +352,23 @@ const css = StyleSheet.create({
     borderRadius: 15,
     justifyContent: "center",
   },
+  textContainer1:{
+    paddingTop: 10, alignItems: "center"
+  },
+  nextButtonContainer:{
+    alignItems: "center",
+    width: "100%",
+    paddingTop: 20,
+  },
+  signinRowContainer:{
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingTop: 20,
+  },
+  textContainer2:{
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  }
 });
