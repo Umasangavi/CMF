@@ -296,12 +296,7 @@ export default function ViewAll(props) {
       <Containers screen style={css.container} loading={state.loading}>
         <View style={css.wrapper}>
           <View
-            style={{
-              height: Height(10),
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+            style={css.addIconContainer}>
             <Header
               label={heading()}
               rightIcon={
@@ -322,7 +317,7 @@ export default function ViewAll(props) {
               }}
             />
           </View>
-          <View style={{ padding: 5 }}>
+          <View style={css.performersContainer}>
             {state.performerData?.length > 0 && (
               <View>
                 <Flatlist
@@ -378,11 +373,7 @@ export default function ViewAll(props) {
                 data={state.recent_event}
                 renderComponent={(item, index) => (
                   <View
-                    style={{
-                      width: "100%",
-                      padding: 2,
-                    }}
-                  >
+                    style={css.recentEventsContainer}>
                     <UpComingEvent
                       editIcon={true}
                       data={item}
@@ -414,7 +405,7 @@ export default function ViewAll(props) {
           open={state.open}
           title={"Are you sure ?"}
           content={() => (
-            <View style={{ paddingTop: 10 }}>
+            <View style={css.deleteTextContainer}>
               <Text color={Colors.Dark} family="regular" size={20}>
                 Are you sure to delete ?
               </Text>
@@ -428,7 +419,7 @@ export default function ViewAll(props) {
           open={state.isRemoveHighlight}
           title={"Are you sure ?"}
           content={() => (
-            <View style={{ paddingTop: 10 }}>
+            <View style={css.deleteTextContainer}>
               <Text color={Colors.Dark} family="regular" size={20}>
                 Are you sure to delete ?
               </Text>
@@ -441,46 +432,27 @@ export default function ViewAll(props) {
           ref={addPerformersRef}
           renderComponent={() => (
             <View style={css.modalContainer}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  padding: 10,
-                }}
-              >
-                <View
-                  style={{
-                    width: "90%",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    paddingLeft: 20,
-                  }}
-                >
+              <View style={css.modalrowContainer}>
+                <View style={css.modalHeadingContainer}>
                   <Text color={Colors.Dark} size={22} family={"bold"}>
                     Add Performer
                   </Text>
                 </View>
-                <View
-                  style={{
-                    width: "10%",
-                    alignItems: "center",
-                    justifyContent: "flex-end",
-                  }}
-                >
+                <View style={css.modalCloseContainer}>
                   <TouchableHighlight
                     underlayColor={Colors.lightDark}
                     onPress={() => {
                       addPerformersRef.current.close();
                       setState({ selectedMusician: "", selectedTroupe: "" });
                     }}
-                    style={{ padding: 10, borderRadius: 15 }}
+                    style={css.toggleClose}
                   >
                     <Image src={Assets.close} height={15} width={15} />
                   </TouchableHighlight>
                 </View>
               </View>
 
-              <View style={{ gap: 10 }}>
+              <View style={css.dropdownContainer}>
                 <Dropdown
                   headerText="Musician"
                   height={50}
@@ -500,8 +472,8 @@ export default function ViewAll(props) {
                   onchange={(value) => setState({ selectedTroupe: value })}
                 />
               </View>
-              <View style={{ flexDirection: "row", gap: 10, width: "100%" }}>
-                <View style={{ width: "48%" }}>
+              <View style={css.buttonsContainer}>
+                <View style={css.buttons}>
                   <PrimaryButton
                     text={"Save"}
                     height={40}
@@ -513,7 +485,7 @@ export default function ViewAll(props) {
                     onPress={() => addPerformer()}
                   />
                 </View>
-                <View style={{ width: "48%" }}>
+                <View style={css.buttons}>
                   <PrimaryButton
                     text={"Close"}
                     height={40}
@@ -539,21 +511,8 @@ export default function ViewAll(props) {
           ref={addHighlightRef}
           renderComponent={() => (
             <View style={css.modalContainer}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  padding: 10,
-                }}
-              >
-                <View
-                  style={{
-                    width: "90%",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    paddingLeft: 20,
-                  }}
-                >
+              <View style={css.modalrowContainer}>
+              <View style={css.modalHeadingContainer}>
                   <Text color={Colors.Dark} size={22} family={"bold"}>
                     {Object.keys(state.selectedHighlight)?.length === 0
                       ? "Add"
@@ -561,13 +520,7 @@ export default function ViewAll(props) {
                     Highlight
                   </Text>
                 </View>
-                <View
-                  style={{
-                    width: "10%",
-                    alignItems: "center",
-                    justifyContent: "flex-end",
-                  }}
-                >
+                <View style={css.modalCloseContainer}>
                   <TouchableHighlight
                     underlayColor={Colors.lightDark}
                     onPress={() => {
@@ -579,14 +532,14 @@ export default function ViewAll(props) {
                         selectedHighlight: {},
                       });
                     }}
-                    style={{ padding: 10, borderRadius: 15 }}
+                    style={css.toggleClose}
                   >
                     <Image src={Assets.close} height={15} width={15} />
                   </TouchableHighlight>
                 </View>
               </View>
 
-              <View style={{ gap: 10 }}>
+              <View style={css.dropdownContainer}>
                 <Input
                   value={state.highlightTitle}
                   onChange={(e) => setState({ highlightTitle: e })}
@@ -628,8 +581,8 @@ export default function ViewAll(props) {
                   require
                 />
               </View>
-              <View style={{ flexDirection: "row", gap: 10, width: "100%" }}>
-                <View style={{ width: "48%" }}>
+              <View style={css.buttonsContainer}>
+                <View style={css.buttons}>
                   <PrimaryButton
                     text={"Close"}
                     height={40}
@@ -648,7 +601,7 @@ export default function ViewAll(props) {
                     }}
                   />
                 </View>
-                <View style={{ width: "48%" }}>
+                <View style={css.buttons}>
                   <PrimaryButton
                     text={
                       Object.keys(state.selectedHighlight)?.length === 0
@@ -690,11 +643,50 @@ const css = StyleSheet.create({
     width: "98%",
     alignItems: "center",
   },
+  addIconContainer:{
+    height: Height(10),
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  performersContainer:{
+   padding: 5
+  },
   modalContainer: {
     backgroundColor: Colors.light,
     borderRadius: 10,
     padding: 10,
     gap: 20,
     width: "100%",
+  },
+  modalrowContainer:{
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 10,
+  },
+  modalHeadingContainer:{
+    width: "90%",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingLeft: 20,
+  },
+  modalCloseContainer:{
+    width: "10%",
+    alignItems: "center",
+    justifyContent: "flex-end",
+  },
+  toggleClose:{
+    padding: 10, 
+    borderRadius: 15
+  },
+  dropdownContainer:{
+    gap: 10
+  },
+  buttonsContainer:{
+    flexDirection: "row", 
+    gap: 10, 
+    width: "100%"
+  },
+  buttons:{
+    width: "48%"
   },
 });
