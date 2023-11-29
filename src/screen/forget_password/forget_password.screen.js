@@ -78,12 +78,7 @@ export default function Login() {
       <View style={css.wrapper}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View
-            style={{
-              height: Height(10),
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+            style={css.heading_container}>
             <Header label="Forget password" />
           </View>
           {/* <LinearGradient
@@ -156,6 +151,11 @@ const css = StyleSheet.create({
     width: "95%",
     alignItems: "center",
   },
+  heading_container:{
+    height: Height(10),
+    alignItems: "center",
+    justifyContent: "center",
+  },       
   img_container: {
     height: Height(40),
     alignItems: "center",
