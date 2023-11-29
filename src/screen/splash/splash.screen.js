@@ -48,7 +48,7 @@ export default function Splash() {
                 Join for an exciting{"\n"}musical experience{"\n"}and explore
                 the world{"\n"}of music
               </Text>
-              <View style={{ alignItems: "center" }}>
+              <View style={css.buttonContainer1}>
                 <PrimaryButton
                   height={50}
                   width={220}
@@ -58,13 +58,8 @@ export default function Splash() {
                 />
               </View>
             </View>
-            <View
-              style={{
-                alignItems: "center",
-                paddingTop: 30,
-              }}
-            >
-              <View style={{ width: "30%" }}>
+            <View style={css.buttonContainer2}>                                                 
+              <View style={css.skipButton}>
                 <PrimaryButton
                   height={40}
                   width={"100%"}
@@ -108,11 +103,14 @@ const css = StyleSheet.create({
     gap: 8,
     alignItems: "center",
   },
-  text_container: {
-    flexDirection: "row",
+   buttonContainer1:{
+    alignItems: "center" 
+   },
+   buttonContainer2:{
     alignItems: "center",
-    justifyContent: "space-between",
-    paddingTop: 5,
-  },
-  text: { flexDirection: "row", alignItems: "center", gap: 10 },
+    paddingTop: 30,
+   },
+   skipButton:{
+    width: "30%" 
+   }
 });
