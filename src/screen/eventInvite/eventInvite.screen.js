@@ -117,30 +117,14 @@ const EventInvite = ({ route }) => {
         <View style={styles.wrapper}>
           <KeyboardAvoidingView behavior="position">
             <View
-              style={{
-                flexDirection: "row",
-                gap: 10,
-                height: 30,
-                alignItems: "center",
-                justifyContent: "center",
-                width: "100%",
-                paddingTop: state.tabIndex == 0 ? 30 : 55,
-              }}
-            >
+              style={[styles.tabindexContainer,{paddingTop: state.tabIndex == 0 ? 30 : 55,}]}>
               {invitetabs?.map((label, index) => (
                 <TouchableHighlight
                   underlayColor={Colors.light}
                   onPress={() => setState({ tabIndex: index })}
-                  style={{
-                    height: Height(5),
-                    width: Width(30),
-                    borderRadius: 20,
-                    backgroundColor:
-                      state.tabIndex == index ? Colors.blue : Colors.light,
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
+                  style={[styles.tabindex, 
+                    {backgroundColor:
+                      state.tabIndex == index ? Colors.blue : Colors.light,}]}>
                   <Text
                     color={state.tabIndex == index ? Colors.light : Colors.Dark}
                     size={14}
@@ -155,14 +139,7 @@ const EventInvite = ({ route }) => {
           </KeyboardAvoidingView>
         </View>
         <View
-          style={{
-            width: "100%",
-            height: "100%",
-            alignItems: "center",
-            paddingTop: 20,
-            height: "75%",
-            paddingBottom: 20,
-          }}
+          style={styles.tabsContainer}
         >
           <View>
             <Flatlist
@@ -191,7 +168,7 @@ const EventInvite = ({ route }) => {
               data={state.musicschoolData}
               renderComponent={({ item }) => (
                 <MusicSchool
-                  data={item}
+                  data={item} 
                   updateList={() => MusicSchool(false)}
                 />
               )}
@@ -213,6 +190,30 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
   },
+  tabindexContainer:{
+    flexDirection: "row",
+    gap: 10,
+    height: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+  },
+  tabindex:{
+    height: Height(5),
+    width: Width(30),
+    borderRadius: 20,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  tabsContainer:{
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    paddingTop: 20,
+    height: "75%",
+    paddingBottom: 20,
+  }
+
 });
 
 export default EventInvite;
