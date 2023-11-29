@@ -40,9 +40,9 @@ export default function CustomBottomTabBar({ state, descriptors, navigation }) {
             <Ionicons
               name={options.tabBarIconName || 'ios-information-circle'}
               size={18}
-              color={isFocused ? '#FF4E98' : '#A6A3B8'}
+              color={isFocused ? '#FF4E98' : '#292929'}
             />
-            <Text size={10} style={{ color: isFocused ? '#FF4E98' : '#A6A3B8'}} >
+            <Text size={10} style={{ color: isFocused ? '#FF4E98' : '#292929'}} >
               {route.name}
             </Text>
           </TouchableOpacity>
