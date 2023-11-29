@@ -124,7 +124,7 @@ export default function Role() {
         start={{ x: 0, y: 1 }}
         end={{ x: 1, y: 1 }}
       > */}
-        <View style={{ paddingTop: 10 }}>
+        <View style={css.roleContainer}>
           <FlatList
             data={data}
             numColumns={2}
@@ -156,7 +156,7 @@ export default function Role() {
                         iconHeight={50}
                         onPress={() => setState({ index })}
                       />
-                      <View style={{ paddingTop: 10 }}>
+                      <View style={css.textContainer}>
                         <Text
                           color={Colors.Dark}
                           size={18}
@@ -173,7 +173,7 @@ export default function Role() {
             )}
           />
         </View>
-        <View style={{ paddingTop: 30 }}>
+        <View style={css.buttonContainer}>
           <PrimaryButton
             text={"Sign up"}
             activity={state.loading}
@@ -220,5 +220,14 @@ const css = StyleSheet.create({
     alignItems: "center",
     borderRadius: 15,
     justifyContent: "center",
+  },
+  roleContainer:{
+    paddingTop: 10
+  },
+  textContainer:{
+    paddingTop: 10 
+  },
+  buttonContainer:{
+    paddingTop: 30
   },
 });
