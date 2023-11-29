@@ -215,23 +215,17 @@ export default function New_event(props) {
       <Containers style={css.container} screen backgroundColor="transparent">
         <Container style="top" />
         <View style={css.wrapper}>
-          <View style={{ height: Height(10) }}>
+          <View style={css.headingContainer}>
             <Header label="Create new event" />
           </View>
           <ScrollView
             showsVerticalScrollIndicator={false}
-            style={{ width: "100%" }}
+            style={css.scrollContainer}
             // contentContainerStyle={{ width: "100%", height: "100%" }}
           >
-            <View style={{ padding: 5 }}>
+            <View style={css.cardPadding}>
               <View
-                style={{
-                  padding: 10,
-                  backgroundColor: Colors.light,
-                  borderRadius: 15,
-                  gap: 20,
-                }}
-              >
+                style={css. cardContainer}>
                 <Input
                   value={state.full_name}
                   onChange={(e) => setState({ full_name: e })}
@@ -255,7 +249,7 @@ export default function New_event(props) {
                   headerText="Event category"
                   require
                 />
-                <View style={{ gap: 5 }}>
+                <View style={css.eventHeadingContainer}>
                   <Text size={20} family="regular" bottom={3}>
                     Event Type
                   </Text>
@@ -265,14 +259,8 @@ export default function New_event(props) {
                       onPress={() =>
                         setState({ eventIndex: index, event_type: item.value })
                       }
-                      style={{
-                        flexDirection: "row",
-                        gap: 5,
-                        height: 30,
-                        alignItems: "center",
-                      }}
-                    >
-                      <View style={{ paddingTop: 5 }}>
+                      style={css.eventtypesContainer}>
+                      <View style={css.radioContainer}>
                         <Image
                           src={
                             state.eventIndex == index
@@ -396,8 +384,8 @@ export default function New_event(props) {
                   placeholder="Venue"
                   require
                 />
-                <View style={{ gap: 5 }}>
-                  <View style={{ flexDirection: "row", gap: 5 }}>
+                <View style={css.posterImageGap}>
+                  <View style={css.posterImageContainer}>
                     <Text color={Colors.Dark} size={18}>
                       Poster image
                     </Text>
@@ -407,20 +395,9 @@ export default function New_event(props) {
                   </View>
                   {state.posterImage ? (
                     <View
-                      style={{
-                        height: Height(18),
-                        justifyContent: "flex-end",
-                      }}
-                    >
+                      style={css.imageBox}>
                       <View
-                        style={{
-                          height: Height(16),
-                          width: "100%",
-                          borderRadius: 15,
-                          overflow: "hidden",
-                          backgroundColor: "red",
-                        }}
-                      >
+                        style={css.imageContainer}>
                         <Image
                           src={state.posterImage}
                           height={"100%"}
@@ -429,7 +406,7 @@ export default function New_event(props) {
                         />
                       </View>
                       <View
-                        style={{ position: "absolute", right: 5, top: -12 }}
+                        style={css.editContainer}
                       >
                         <NavButton
                           icon={Assets.edit}
@@ -444,15 +421,7 @@ export default function New_event(props) {
                   ) : (
                     <TouchableOpacity
                       onPress={() => uploadImages()}
-                      style={{
-                        height: Height(6),
-                        width: Width(50),
-                        borderRadius: 10,
-                        backgroundColor: Colors.grey,
-                        alignItems: "center",
-                        justifyContent: `center`,
-                      }}
-                    >
+                      style={css.chooseImageContainer}>
                       <Text color={Colors.Dark} size={18}>
                         Choose image
                       </Text>
@@ -476,13 +445,7 @@ export default function New_event(props) {
                   placeholder="Ticket booking place"
                   require
                 />
-                <View
-                  style={{
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
+                <View style={css.textContainer}>
                   <View>
                     <Text size={18}>
                       Limited to personal invitation,{"\n"}No other registration
@@ -496,13 +459,7 @@ export default function New_event(props) {
                     onchange={() => setState({ invite: !state.invite })}
                   />
                 </View>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
+                <View style={css.textContainer}>
                   <View>
                     <Text size={18} color={Colors.Dark}>
                       Auto accept
@@ -516,12 +473,7 @@ export default function New_event(props) {
                   />
                 </View>
                 <View
-                  style={{
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "space-evenly",
-                  }}
-                >
+                  style={css.buttonsContainer}>
                   <NavButton
                     icon={Assets.plus_circle}
                     height={55}
@@ -574,4 +526,71 @@ const css = StyleSheet.create({
     width: "95%",
     // alignItems: "center",
   },
+  headingContainer: {
+    height: Height(10)
+  },
+  scrollContainer:{
+    width: "100%"
+  },
+  cardPadding:{
+    padding: 5
+  },
+  cardContainer:{
+    padding: 10,
+    backgroundColor: Colors.light,
+    borderRadius: 15,
+    gap: 20,
+  },
+  eventHeadingContainer:{
+    gap: 5
+  },
+  eventtypesContainer:{
+    flexDirection: "row",
+    gap: 5,
+    height: 30,
+    alignItems: "center",
+  },
+  radioContainer:{
+    paddingTop: 5
+  },
+  posterImageGap:{
+    gap: 5
+  },
+  posterImageContainer:{
+    flexDirection: "row", 
+    gap: 5
+  },
+  imageBox:{
+    height: Height(18),
+    justifyContent: "flex-end",
+  },
+  imageContainer:{
+    height: Height(16),
+    width: "100%",
+    borderRadius: 15,
+    overflow: "hidden",
+    backgroundColor: "red",
+  },
+  editContainer:{
+    position: "absolute", right: 5, top: -12
+  },
+  chooseImageContainer:{
+    height: Height(6),
+    width: Width(50),
+    borderRadius: 10,
+    backgroundColor: Colors.grey,
+    alignItems: "center",
+    justifyContent: `center`,
+  },
+  textContainer:{
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  buttonsContainer:{
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+  }
+
 });
