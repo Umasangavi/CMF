@@ -64,7 +64,7 @@ export default function Intro() {
                 Reference site about Lorem{"\n"}Ipsum, giving information
                 origins
               </Text>
-              <View style={{ alignItems: "center", gap: -10, paddingTop: 15 }}>
+              <View style={css.buttons_container}>
                 <PrimaryButton
                   height={50}
                   width={Width(80)}
@@ -122,4 +122,7 @@ const css = StyleSheet.create({
     paddingTop: 5,
   },
   text: { flexDirection: "row", alignItems: "center", gap: 10 },
+  buttons_container:{
+    alignItems: "center", gap: -10, paddingTop: 15
+  },
 });
