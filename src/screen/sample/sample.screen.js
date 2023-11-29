@@ -84,13 +84,7 @@ export default function Sample(props) {
         loading={state.loading}
       >
         <View style={css.wrapper}>
-          <View
-            style={{
-              height: Height(10),
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <View style={css.headingContainer}>
             <Header label="Sign In" />
           </View>
         </View>
@@ -110,4 +104,10 @@ const css = StyleSheet.create({
     width: "100%",
     alignItems: "center",
   },
+  headingContainer:{
+    height: Height(10),
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  
 });
