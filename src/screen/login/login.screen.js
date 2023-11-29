@@ -83,12 +83,7 @@ export default function Login() {
         <View style={css.wrapper}>
           <ScrollView showsVerticalScrollIndicator={false}>
             <View
-              style={{
-                height: Height(10),
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
+              style={css.heading_container}>
               <Header label="Sign In" />
             </View>
             {/* <LinearGradient
@@ -129,7 +124,7 @@ export default function Login() {
                 value={state.password}
                 onChange={(e) => setState({ password: e })}
               />
-              <View style={css.text_container}>
+              <View style={css.text_container1}>
                 <View style={css.text}>
                   <Image src={Assets.checked} height={20} width={20} />
                   <Text color={Colors.Dark} size={18} family={"regular"}>
@@ -167,16 +162,8 @@ export default function Login() {
             }}
           > */}
             <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                paddingTop: 10,
-              }}
-            >
-              <View
-                style={{ flexDirection: "row", alignItems: "center", gap: 10 }}
-              >
+              style={css.text_container2}>
+              <View style={css.text}>
                 <Text color={Colors.Dark} size={20} family={"regular"}>
                   Don't have an account ?
                 </Text>
@@ -216,6 +203,11 @@ const css = StyleSheet.create({
     width: "95%",
     alignItems: "center",
   },
+  heading_container:{
+    height: Height(10),
+    alignItems: "center",
+    justifyContent: "center",
+  },
   img_container: {
     height: Height(40),
     alignItems: "center",
@@ -231,11 +223,17 @@ const css = StyleSheet.create({
     // alignItems: "center",
     // justifyContent: "center",
   },
-  text_container: {
+  text_container1: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     paddingTop: 5,
+  },
+  text_container2:{
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingTop: 10,
   },
   text: { flexDirection: "row", alignItems: "center", gap: 10 },
 });
